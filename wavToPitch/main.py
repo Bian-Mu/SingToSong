@@ -187,15 +187,19 @@ def merge_short_unions(unions: List[PitchUnion], threshold=0.12) -> List[PitchUn
     
     return final_unions
 
+def serialize_pitch(pitch:PitchUnion):
+    return {
+        "start_time":  float(f"{pitch.start_time:.2f}"),  
+        "duration": float(f"{pitch.duration:.2f}"), 
+        "note": pitch.note
+    }
+
+
 if __name__ == "__main__":
     audio_file = "input.m4a" 
     
     pitch_unions = merge_short_unions(merge_pitch_units(detect_pitch(audio_file)))
     
+    with open("output.json","w") as f:
+        json.dump([serialize_pitch(union) for union in pitch_unions],f)
     
-    
-    print("\n合并后的PitchUnion:")
-    for i, union in enumerate(pitch_unions):
-        print(f"Union {i}: {union}")
-    
-    print(f"Total unions after merging: {len(pitch_unions)}")
