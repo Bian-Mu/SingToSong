@@ -1,3 +1,4 @@
 libsora
 numpy
-pretty_midi
+# pretty_midi
+midiutil
