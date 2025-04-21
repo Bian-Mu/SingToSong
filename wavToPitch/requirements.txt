@@ -1,0 +1,3 @@
+libsora
+numpy
+pretty_midi
