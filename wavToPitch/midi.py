@@ -2,7 +2,7 @@ from pitch import PitchUnion
 from typing import List
 from midiutil import MIDIFile
 from utils import getNote
-
+import fluidsynth
 
 def notes_to_midi(pitch_unions: List[PitchUnion],output_path,tempo:int = 120):
     
@@ -14,8 +14,8 @@ def notes_to_midi(pitch_unions: List[PitchUnion],output_path,tempo:int = 120):
     volume=100
     
     for union in pitch_unions:
-        start=getattr(union,"start_time",0)
-        duration=getattr(union,"duration",0)*tempo
+        start=getattr(union,"start_time",0)*tempo/60
+        duration=getattr(union,"duration",0)*tempo/60
         pitch=round(getNote(getattr(union,"note","C4")))
         
         midi.addNote(track,channel,pitch,start,duration,volume)
@@ -24,4 +24,6 @@ def notes_to_midi(pitch_unions: List[PitchUnion],output_path,tempo:int = 120):
         midi.writeFile(f)
         
     print(f"success:{output_path}")
+
     
+#     print(f"音频文件已生成: {output_wav}")
