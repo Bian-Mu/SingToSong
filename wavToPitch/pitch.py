@@ -39,7 +39,7 @@ class PitchUnion:
         )
 
 
-    def overlaps_with(self, other):
+    def overlaps_with(self, other:"PitchUnion"):
         """检查两个PitchUnion对象在时间上是否有重叠"""
         if self.track != other.track:
             return False
