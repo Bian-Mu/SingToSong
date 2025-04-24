@@ -7,12 +7,13 @@ from typing import List
 
     
 class PitchUnion:
-    def __init__(self, track:int,cut:int, start_beat: float, duration: float, note: str):
+    def __init__(self, track:int,cut:int, start_beat: float, duration: float, note: str,instrument:int):
         self.track=track # 音轨
         self.cut=cut # 几分音符
         self.start_beat = start_beat # 初始拍位
         self.duration = duration  # 持续节拍
         self.note = note # 音高
+        self.instrument=instrument # 乐器编号
     
     #写    
     def to_dict(self):
@@ -21,7 +22,8 @@ class PitchUnion:
             'cut': self.cut,
             'start_beat': self.start_beat,
             'duration': self.duration,
-            'note': self.note
+            'note': self.note,
+            'instrument':self.instrument
         }
     
     #读 
@@ -32,7 +34,8 @@ class PitchUnion:
             cut=data['cut'],
             start_beat=data['start_beat'],
             duration=data['duration'],
-            note=data['note']
+            note=data['note'],
+            instrument=data['instrument']
         )
 
 

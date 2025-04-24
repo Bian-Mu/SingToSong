@@ -11,7 +11,8 @@ def input_pitch_union():
         start_beat = float(input("开始拍数 (如1.0): "))
         duration = float(input("持续拍数 (如0.5): "))
         note = input("音高 (如C4, D#3等): ").strip().upper()
-        return PitchUnion(track, cut, start_beat, duration, note)
+        instrument=int(input("乐器编号（整数）："))
+        return PitchUnion(track, cut, start_beat, duration, note,instrument)
     except ValueError:
         print("输入无效，请确保输入正确的数值类型")
         return None
@@ -21,6 +22,10 @@ if __name__ == "__main__":
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     output_json = os.path.join(BASE_DIR, "output/output.json")
     output_mid=os.path.join(BASE_DIR,"output/output.mid")
+    
+    with open(os.path.join(BASE_DIR,"src/configs.json")) as f:
+        configs=json.load(f)
+    
     pitch_unions = []
     
     if os.path.exists(output_json):
@@ -31,19 +36,12 @@ if __name__ == "__main__":
             except json.JSONDecodeError:
                 print("文件路径已存在文件")
     
-    while True:
-        new_pitch = input_pitch_union()
-        
-        if new_pitch is None:
-            continue
-        if new_pitch.note.lower() == 'q':
-            break
-        
-        addNote(new_pitch, output_json)
-        pitch_unions.append(new_pitch)
-        print(f"已添加音符: {new_pitch.note} 到音轨 {new_pitch.track}")
+    # new_pitch = input_pitch_union()
+    # addNote(new_pitch, output_json)
+    # pitch_unions.append(new_pitch)
+    # print(f"已添加音符: {new_pitch.note} 到音轨 {new_pitch.track}")
     
     with open(output_json,"w") as f:
         json.dump([union.to_dict() for union in pitch_unions],f)
     
-    notes_to_midi(pitch_unions,output_mid,60)
+    notes_to_midi(pitch_unions,output_mid,configs["tempo"],configs["timeSignature"])

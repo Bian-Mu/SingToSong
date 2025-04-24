@@ -10,7 +10,5 @@ with open(os.path.join(BASE_DIR,"./src/notes.json"), 'r') as f:
 def getNote(note:str)->int:
     for group in notes_data:
         if group.get(note):
-            return 69 + 12 * math.log2(group.get(note) / 440.0)
+            return round(69 + 12 * math.log2(group.get(note) / 440.0))
 
-
-# getNote("C4")
