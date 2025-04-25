@@ -20,6 +20,10 @@ def notes_to_midi(pitch_unions: List[PitchUnion],output_path,tempo:int = 60,time
         pitch=getNote(getattr(union,"note","C4"))
         instrument=getattr(union,"instrument",0)
         track=getattr(union,"track",1)
+        cut=getattr(union,"cut")
+        sustain=getattr(union,'sustain')
+        
+        cut_beat=time_signature[1]/cut
         
         if track!=current_track:
             current_track=track
@@ -29,7 +33,11 @@ def notes_to_midi(pitch_unions: List[PitchUnion],output_path,tempo:int = 60,time
             midi.addProgramChange(current_track,current_track,start,instrument)
             current_instrument=instrument
             
-        midi.addNote(current_track,current_track,pitch,start,duration,volume)
+        if duration%cut_beat==0 and not sustain:
+            for cut_note in range(int(duration/cut_beat)):
+                midi.addNote(current_track,current_track,pitch,start+cut_note*cut_beat,cut_beat,volume)
+        else:
+            midi.addNote(current_track,current_track,pitch,start,duration,volume)
         
     with open(output_path,"wb") as f:
         midi.writeFile(f)

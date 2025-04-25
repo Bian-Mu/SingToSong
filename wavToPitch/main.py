@@ -8,11 +8,12 @@ def input_pitch_union():
     try:
         track = int(input("音轨号 (整数): "))
         cut = int(input("几分音符 (如4表示4分音符): "))
+        sustain=bool(int(input("是否延音（1/0）：")))
         start_beat = float(input("开始拍数 (如1.0): "))
         duration = float(input("持续拍数 (如0.5): "))
         note = input("音高 (如C4, D#3等): ").strip().upper()
         instrument=int(input("乐器编号（整数）："))
-        return PitchUnion(track, cut, start_beat, duration, note,instrument)
+        return PitchUnion(track, cut, sustain,start_beat, duration, note,instrument)
     except ValueError:
         print("输入无效，请确保输入正确的数值类型")
         return None
