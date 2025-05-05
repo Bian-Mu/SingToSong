@@ -1,7 +1,14 @@
-from pitch import PitchUnion
+import os
+import pretty_midi
+import soundfile as sf
 from typing import List
 from midiutil import MIDIFile
+from fluidsynth import Synth
+
+from pitch import PitchUnion
 from utils import getNote
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def notes_to_midi(pitch_unions: List[PitchUnion],output_path,tempo:int = 60,time_signature:list=[4,4]):
     
@@ -18,7 +25,7 @@ def notes_to_midi(pitch_unions: List[PitchUnion],output_path,tempo:int = 60,time
         start=getattr(union,"start_beat",0)
         duration=getattr(union,"duration",0)
         pitch=getNote(getattr(union,"note","C4"))
-        instrument=getattr(union,"instrument",0)
+        instrument=getattr(union,"instrument",1)
         track=getattr(union,"track",1)
         cut=getattr(union,"cut")
         sustain=getattr(union,'sustain')
@@ -45,3 +52,16 @@ def notes_to_midi(pitch_unions: List[PitchUnion],output_path,tempo:int = 60,time
     print(f"success:{output_path}")
 
     
+
+def midi_to_wav(midi_path,wav_path,soundfont_path=os.path.join(BASE_DIR,"src/FluidR3_GM.sf2")):
+    fs = Synth()
+    sfid = fs.sfload(soundfont_path)
+    fs.program_select(0, sfid, 0, 0)
+    
+    midi_data = pretty_midi.PrettyMIDI(midi_path)
+    
+    audio = midi_data.fluidsynth(fs=44100)
+    
+    sf.write(wav_path, audio, 44100)
+    
+    fs.delete()

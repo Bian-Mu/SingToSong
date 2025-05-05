@@ -28,3 +28,4 @@ dist-react
 dist-electron
 __pycache__
 *.m4a
+*.sf2

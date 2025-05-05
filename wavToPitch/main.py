@@ -1,7 +1,7 @@
 import json
 import os
 from pitch import PitchUnion, addNote
-from midi import notes_to_midi
+from midi import notes_to_midi,midi_to_wav
 
 def input_pitch_union():
     print("\n输入新的音符信息 (输入q退出):")
@@ -23,6 +23,8 @@ if __name__ == "__main__":
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     output_json = os.path.join(BASE_DIR, "output/output.json")
     output_mid=os.path.join(BASE_DIR,"output/output.mid")
+    output_wav=os.path.join(BASE_DIR,"output/output.wav")
+    
     
     with open(os.path.join(BASE_DIR,"src/configs.json")) as f:
         configs=json.load(f)
@@ -46,3 +48,4 @@ if __name__ == "__main__":
         json.dump([union.to_dict() for union in pitch_unions],f)
     
     notes_to_midi(pitch_unions,output_mid,configs["tempo"],configs["timeSignature"])
+    midi_to_wav(output_mid,output_wav)
