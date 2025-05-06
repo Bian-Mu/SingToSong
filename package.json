@@ -3,19 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "dist-electron/main",
+  "main": "dist-electron/main.js",
   "scripts": {
     "dev:react": "vite",
     "dev:electron": "electron .",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "transpile:electron": "tsc --project src/electron/tsconfig.json"
+    "transpile:electron": "tsc --project src/electron/tsconfig.json",
+    "dist:linux": "yarn transpile:electron && yarn build && electron-builder --linux --x64"
   },
   "dependencies": {
     "antd": "^5.24.6",
-    "electron": "^35.1.4",
-    "electron-builder": "^26.0.12",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.5.0",
