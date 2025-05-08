@@ -779,6 +779,13 @@
   resolved "https://registry.npmmirror.com/@types/cookie/-/cookie-0.6.0.tgz"
   integrity sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==
 
+"@types/electron@^1.6.12":
+  version "1.6.12"
+  resolved "https://registry.npmmirror.com/@types/electron/-/electron-1.6.12.tgz#0921813f95b92fdce9f642f85cb561318fcf0a04"
+  integrity sha512-NIJokDkGv9h+MStCL1IuiL1FOHYVkszoWeNxJtSI5dcEKRGbX83JcVYNAgk019qOQgJkHtz9WdP0CDXvrArrGg==
+  dependencies:
+    electron "*"
+
 "@types/estree@1.0.7", "@types/estree@^1.0.6":
   version "1.0.7"
   resolved "https://registry.npmmirror.com/@types/estree/-/estree-1.0.7.tgz"
@@ -807,6 +814,11 @@
   integrity sha512-BL1eyu/XWsFGTtDWOYULQEs4KR0qdtYfCxYAUYRoB7JP7h9ETYLgQTww6kH8Sj2C0pFGgrpM0XKv6/kbIzYJ1g==
   dependencies:
     undici-types "~6.21.0"
+
+"@types/os-utils@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.npmmirror.com/@types/os-utils/-/os-utils-0.0.4.tgz#d26863ed7de0a52fc0566131e2b61615ed00595e"
+  integrity sha512-TdQ/6GHzq8YMsDOXHfit8sDD1VjLnqC61sI7ICocwREw/68V5C/bjex+/Jya3XRD3FgGyj6fhTqhbVrXeh8UJg==
 
 "@types/react-dom@^19.0.4":
   version "19.1.1"
@@ -1225,7 +1237,7 @@ electron-to-chromium@^1.5.73:
   resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.5.134.tgz"
   integrity sha512-zSwzrLg3jNP3bwsLqWHmS5z2nIOQ5ngMnfMZOWWtXnqqQkPVyOipxK98w+1beLw1TB+EImPNcG8wVP/cLVs2Og==
 
-electron@^36.1.0:
+electron@*, electron@^36.1.0:
   version "36.1.0"
   resolved "https://registry.npmmirror.com/electron/-/electron-36.1.0.tgz#9919b77e61cd1400acc6dd24f9db8451fba5f8eb"
   integrity sha512-gnp3BnbKdGsVc7cm1qlEaZc8pJsR08mIs8H/yTo8gHEtFkGGJbDTVZOYNAfbQlL0aXh+ozv+CnyiNeDNkT1Upg==
@@ -1849,6 +1861,11 @@ optionator@^0.9.3:
     prelude-ls "^1.2.1"
     type-check "^0.4.0"
     word-wrap "^1.2.5"
+
+os-utils@^0.0.14:
+  version "0.0.14"
+  resolved "https://registry.npmmirror.com/os-utils/-/os-utils-0.0.14.tgz#29e511697b1982b8c627722175fe39797ef64156"
+  integrity sha512-ajB8csaHLBvJOYsHJkp8YdO2FvlBbf/ZxaYQwXXRDyQ84UoE+uTuLXxqd0shekXMX6Qr/pt/DDyLMRAMsgfWzg==
 
 p-cancelable@^2.0.0:
   version "2.1.1"
