@@ -14,10 +14,12 @@
     "dist:linux": "yarn transpile:electron && yarn build && electron-builder --linux --x64"
   },
   "dependencies": {
+    "@types/axios": "^0.14.4",
     "@types/electron": "^1.6.12",
     "@types/node": "^22.15.14",
     "@types/os-utils": "^0.0.4",
     "antd": "^5.24.6",
+    "axios": "^1.9.0",
     "cross-env": "^7.0.3",
     "electron": "^36.1.0",
     "os-utils": "^0.0.14",
