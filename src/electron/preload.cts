@@ -1,11 +1,15 @@
 import { contextBridge, ipcRenderer } from 'electron'
 
 contextBridge.exposeInMainWorld("electron", {
-    subscribeStatistics: (callback: (statistics: any) => void) => callback({}),
+    subscribeStatistics: (callback: (statistics: any) => void) => {
+        ipcRenderer.on("statistics", (_, stats) => {
+            callback(stats)
+        })
+    },
     getStaticData: () => console.log('static'),
 })
 
-contextBridge.exposeInMainWorld('electronAPI', {
-    fetchData: () => ipcRenderer.invoke('fetch-data'),
-    processData: () => ipcRenderer.invoke('process-data')
-});
+// contextBridge.exposeInMainWorld('electronAPI', {
+//     fetchData: () => ipcRenderer.invoke('fetch-data'),
+//     processData: () => ipcRenderer.invoke('process-data')
+// });
