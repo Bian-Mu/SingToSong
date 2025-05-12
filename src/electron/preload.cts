@@ -18,7 +18,8 @@ function ipcOn<Key extends keyof EventPayloadMapping>(key: Key, callback: (paylo
     ipcRenderer.on(key, cb)
     return () => ipcRenderer.off(key, cb)
 }
-// contextBridge.exposeInMainWorld('electronAPI', {
-//     fetchData: () => ipcRenderer.invoke('fetch-data'),
-//     processData: () => ipcRenderer.invoke('process-data')
-// });
+
+contextBridge.exposeInMainWorld('electronAPI', {
+    fetchData: () => ipcRenderer.invoke('fetch-data'),
+    processData: () => ipcRenderer.invoke('process-data')
+});

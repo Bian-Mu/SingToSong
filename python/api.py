@@ -31,6 +31,7 @@ def read_notes():
         if os.path.exists(OUTPUT_JSON):
             with open(OUTPUT_JSON, 'r') as f:
                 data = json.load(f)
+            print("DEBUG - data:", data)  # 检查实际读取的内容
             return jsonify({"success": True, "notes": data})
         return jsonify({"success": False, "error": "File not found"})
     except Exception as e:
@@ -45,7 +46,7 @@ def write_notes(new_note:PitchUnion):
     except Exception as e:
         return jsonify({"success": False, "error": str(e)})
 
-@app.route('process-midi',method=['POST'])
+@app.route('/process-midi',methods=['POST'])
 def process_midi():
     try:
         if os.path.exists(OUTPUT_JSON):
@@ -64,4 +65,5 @@ def process_midi():
         return jsonify({"success": False, "error": str(e)})            
                 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(port=5000,debug=True)
+    

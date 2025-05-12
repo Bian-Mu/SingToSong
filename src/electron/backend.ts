@@ -6,7 +6,7 @@ let pythonProcess: any = null;
 export function startPythonServer() {
     if (pythonProcess) return;
 
-    const pythonScriptPath = path.join('wavToPitch/api.py');
+    const pythonScriptPath = path.join('python/api.py');
     console.log(pythonScriptPath)
 
     pythonProcess = spawn('python', [pythonScriptPath]);

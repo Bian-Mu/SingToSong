@@ -14,7 +14,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <div>
+      {/* <div>
         <a href="https://react.dev" target="_blank">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
@@ -30,7 +30,7 @@ const App: React.FC = () => {
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
+      </p> */}
       <DataViewer />
     </>
   )
