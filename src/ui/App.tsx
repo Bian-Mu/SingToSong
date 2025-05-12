@@ -8,7 +8,6 @@ const App: React.FC = () => {
 
 
   useEffect(() => {
-    //@ts-ignore
     window.electron.subscribeStatistics((stats) => console.log(stats))
   }, [])
 

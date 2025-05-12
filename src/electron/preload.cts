@@ -6,8 +6,8 @@ contextBridge.exposeInMainWorld("electron", {
             callback(stats)
         })
     },
-    getStaticData: () => console.log('static'),
-})
+    getStaticData: () => ipcRenderer.invoke("getStaticData")
+} satisfies Window['electron'])
 
 // contextBridge.exposeInMainWorld('electronAPI', {
 //     fetchData: () => ipcRenderer.invoke('fetch-data'),

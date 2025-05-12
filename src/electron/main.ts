@@ -1,7 +1,7 @@
 import { app, BrowserWindow, ipcMain } from "electron";
 import path from "path"; //适配windows的反斜杠
 import { isDev } from "./util.js";
-import { pollResources } from "./resourceManager.js";
+import { getStaticData, pollResources } from "./resourceManager.js";
 import { getPreloadPath } from "./pathResolver.js";
 import { startPythonServer, stopPythonServer } from "./backend.js";
 import axios from "axios";
@@ -19,7 +19,11 @@ app.on("ready", () => {
         mainWindow.loadFile(path.join(app.getAppPath(), "/dist-react/index.html"))
     }
 
-    pollResources(mainWindow);
+    // pollResources(mainWindow);
+
+    ipcMain.handle("getStaticData", () => {
+        return getStaticData()
+    })
 })
 
 
