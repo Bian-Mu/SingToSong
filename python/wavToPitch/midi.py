@@ -5,8 +5,7 @@ from typing import List
 from midiutil import MIDIFile
 from fluidsynth import Synth
 
-from pitch import PitchUnion
-from utils import getNote
+from .pitch import PitchUnion,getNote
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 

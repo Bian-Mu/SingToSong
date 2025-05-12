@@ -1,0 +1,67 @@
+import json
+from flask import Flask, jsonify
+import os
+
+from wavToPitch.midi import midi_to_wav, notes_to_midi
+from wavToPitch.pitch import PitchUnion, addNote
+
+app = Flask(__name__)
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+OUTPUT_JSON = os.path.join(BASE_DIR, "output/output.json")
+OUTPUT_MIDI = os.path.join(BASE_DIR,"output/output.mid")
+OUTPUT_WAV = os.path.join(BASE_DIR,"output/output.wav")
+CONFIG_PATH = os.path.join(BASE_DIR,"output/configs.json")
+
+
+@app.route('/read-config', methods=['GET'])
+def read_config():
+    try:
+        if os.path.exists(CONFIG_PATH):
+            with open(CONFIG_PATH, 'r') as f:
+                data = json.load(f)
+            return jsonify({"success": True, "config": data})
+        return jsonify({"success": False, "error": "File not found"})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
+
+@app.route('/read-notes', methods=['GET'])
+def read_notes():
+    try:
+        if os.path.exists(OUTPUT_JSON):
+            with open(OUTPUT_JSON, 'r') as f:
+                data = json.load(f)
+            return jsonify({"success": True, "notes": data})
+        return jsonify({"success": False, "error": "File not found"})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
+
+@app.route('/write-notes', methods=['POST'])
+def write_notes(new_note:PitchUnion):
+    try:
+        if os.path.exists(OUTPUT_JSON):
+            addNote(new_note,OUTPUT_JSON)
+            return jsonify({"success": True})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
+
+@app.route('process-midi',method=['POST'])
+def process_midi():
+    try:
+        if os.path.exists(OUTPUT_JSON):
+            with open(OUTPUT_JSON, 'r') as f:
+                data = json.load(f)
+                pitch_unions = [PitchUnion.from_dict(item) for item in data]
+                
+            with open(CONFIG_PATH, 'r') as f:
+                configs = json.load(f)
+                
+                notes_to_midi(pitch_unions,OUTPUT_MIDI,configs["tempo"],configs["timeSignature"])
+                midi_to_wav(OUTPUT_MIDI,OUTPUT_WAV)
+                
+                return jsonify({"success": True})  
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})            
+                
+if __name__ == '__main__':
+    app.run(port=5000)

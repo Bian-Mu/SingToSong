@@ -1,11 +1,7 @@
+import math
 import os
-import librosa
-import numpy as np
 import json
-from typing import List
 
-
-    
 class PitchUnion:
     def __init__(self, track:int,cut:int,sustain:bool ,start_beat: float, duration: float, note: str,instrument:int):
         self.track=track # 音轨
@@ -72,3 +68,11 @@ def addNote(input:PitchUnion,file:str):
 
     with open(file, 'w') as f:
         json.dump([note.to_dict() for note in notes], f, indent=4)
+
+def getNote(note:str)->int:
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    with open(os.path.join(BASE_DIR,"./src/notes.json"), 'r') as f:
+        notes_data = json.load(f)
+    for group in notes_data:
+        if group.get(note):
+            return round(69 + 12 * math.log2(group.get(note) / 440.0))

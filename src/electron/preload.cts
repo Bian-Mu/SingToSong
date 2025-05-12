@@ -1,11 +1,11 @@
 import { contextBridge, ipcRenderer } from 'electron'
 
 contextBridge.exposeInMainWorld("electron", {
-    subscribeStatistics: (callback: (statistics: any) => void) => {
+    //隐式返回
+    subscribeStatistics: (callback: (statistics: any) => void) =>
         ipcOn("statistics", (stats) => {
             callback(stats)
-        })
-    },
+        }),
     getStaticData: () => ipcInvoke("getStaticData")
 } satisfies Window['electron'])
 
@@ -14,7 +14,9 @@ function ipcInvoke<Key extends keyof EventPayloadMapping>(key: Key): Promise<Eve
 }
 
 function ipcOn<Key extends keyof EventPayloadMapping>(key: Key, callback: (payload: EventPayloadMapping[Key]) => void) {
-    ipcRenderer.on(key, (_, payload) => callback(payload))
+    const cb = (_: Electron.IpcRendererEvent, payload: any) => callback(payload)
+    ipcRenderer.on(key, cb)
+    return () => ipcRenderer.off(key, cb)
 }
 // contextBridge.exposeInMainWorld('electronAPI', {
 //     fetchData: () => ipcRenderer.invoke('fetch-data'),
