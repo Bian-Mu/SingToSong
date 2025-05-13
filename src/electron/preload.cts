@@ -10,7 +10,8 @@ contextBridge.exposeInMainWorld("electron", {
 } satisfies Window['electron'])
 
 contextBridge.exposeInMainWorld("electronAPI", {
-    readNotes: () => ipcInvoke('readNotes')
+    readNotes: () => ipcInvoke('readNotes'),
+    readConfig: () => ipcInvoke('readConfig')
 })
 
 

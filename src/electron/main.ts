@@ -71,12 +71,25 @@ ipcMainHandle('readNotes', async () => {
     }
 });
 
-// ipcMain.handle('process-data', async () => {
-//     try {
-//         const response = await axios.post('http://localhost:5000/process-data');
-//         return response.data;
-//     } catch (error) {
-//         console.error('Error processing data:', error);
-//         return { success: false, error };
-//     }
-// });
+ipcMainHandle('readConfig', async () => {
+    try {
+        const response = await axios.get('http://localhost:5000/read-config');
+        if (response.data.success) {
+            return JSON.parse(JSON.stringify(response.data.config)) as Config
+        }
+        return defaultConfig
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return defaultConfig
+    }
+});
+
+const defaultConfig: Config = {
+    name: "default",
+    tempo: 60,
+    timeSignature: [
+        4,
+        4
+    ],
+    keySignature: "C"
+}

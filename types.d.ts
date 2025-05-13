@@ -20,10 +20,19 @@ type PitchUnion = {
     instrument: number
 }
 
+type Config = {
+    name: string,
+    tempo: number,
+    timeSignature: [number, number]
+    keySignature: string
+}
+
+
 type EventPayloadMapping = {
     statistics: Statistics,
     getStaticData: StaticData
     readNotes: PitchUnion[]
+    readConfig: Config
 }
 
 type UnSubscribeFunction = () => void

@@ -1,20 +1,23 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import NotesViewer from './components/NotesViewer/NotesViewer'
+import NoteAddBox from './components/NoteAddBox/NoteAddBox'
 
 const App: React.FC = () => {
-  const [count, setCount] = useState(0)
 
-
-  useEffect(() => {
-    const unsub = window.electron.subscribeStatistics((stats) => console.log(stats))
-    return unsub;
-  }, [])
+  // useEffect(() => {
+  //   const unsub = window.electron.subscribeStatistics((stats) => console.log(stats))
+  //   return unsub;
+  // }, [])
 
   return (
-    <div>
-      <NotesViewer />
-
+    <div id='whole-page'>
+      <div id='viewer-part'>
+        <NotesViewer />
+      </div>
+      <div id='addbox-part'>
+        <NoteAddBox />
+      </div>
     </div>
   )
 }
