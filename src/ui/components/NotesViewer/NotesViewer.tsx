@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import './DataViewer.css';
+import './NotesViewer.css';
 
 declare global {
     interface Window {
@@ -10,7 +10,7 @@ declare global {
     }
 }
 
-const DataViewer: React.FC = () => {
+const NotesViewer: React.FC = () => {
     const [data, setData] = useState<any>(null);
     const [error, setError] = useState<string | null>(null);
 
@@ -52,4 +52,4 @@ const DataViewer: React.FC = () => {
     );
 };
 
-export default DataViewer;
+export default NotesViewer;
