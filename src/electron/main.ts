@@ -27,12 +27,10 @@ import axios from "axios";
 // })
 
 
-let mainWindow: BrowserWindow | null = null;
-
 app.whenReady().then(() => {
     startPythonServer();
 
-    mainWindow = new BrowserWindow({
+    const mainWindow = new BrowserWindow({
         webPreferences: {
             preload: getPreloadPath(),
         }
@@ -60,21 +58,16 @@ function createWindow() {
     throw new Error("Function not implemented.");
 }
 
-ipcMain.handle('fetch-data', async () => {
+ipcMainHandle('readNotes', async () => {
     try {
         const response = await axios.get('http://localhost:5000/read-notes');
-        // 确保只返回可序列化的数据
-        return {
-            success: response.data.success,
-            data: JSON.parse(JSON.stringify(response.data.notes || {})),
-            error: response.data.error || null
-        };
+        if (response.data.success) {
+            return JSON.parse(JSON.stringify(response.data.pitchunions)) as PitchUnion[]
+        }
+        return []
     } catch (error) {
         console.error('Error fetching data:', error);
-        return {
-            success: false,
-            error: error instanceof Error ? error.message : 'Unknown error'
-        };
+        return []
     }
 });
 

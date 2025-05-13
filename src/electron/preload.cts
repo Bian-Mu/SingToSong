@@ -9,6 +9,11 @@ contextBridge.exposeInMainWorld("electron", {
     getStaticData: () => ipcInvoke("getStaticData")
 } satisfies Window['electron'])
 
+contextBridge.exposeInMainWorld("electronAPI", {
+    readNotes: () => ipcInvoke('readNotes')
+})
+
+
 function ipcInvoke<Key extends keyof EventPayloadMapping>(key: Key): Promise<EventPayloadMapping[Key]> {
     return ipcRenderer.invoke(key)
 }
@@ -18,8 +23,3 @@ function ipcOn<Key extends keyof EventPayloadMapping>(key: Key, callback: (paylo
     ipcRenderer.on(key, cb)
     return () => ipcRenderer.off(key, cb)
 }
-
-contextBridge.exposeInMainWorld('electronAPI', {
-    fetchData: () => ipcRenderer.invoke('fetch-data'),
-    processData: () => ipcRenderer.invoke('process-data')
-});

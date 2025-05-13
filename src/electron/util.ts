@@ -6,7 +6,7 @@ export function isDev(): boolean {
     return process.env.NODE_ENV === 'development';
 }
 
-export function ipcMainHandle<Key extends keyof EventPayloadMapping>(key: Key, handler: () => EventPayloadMapping[Key]) {
+export function ipcMainHandle<Key extends keyof EventPayloadMapping>(key: Key, handler: () => EventPayloadMapping[Key] | Promise<EventPayloadMapping[Key]>) {
     ipcMain.handle(key, (event) => {
         validateEventFrame(event.senderFrame as WebFrameMain);
         return handler()
@@ -19,7 +19,7 @@ export function ipcWebContentsSend<Key extends keyof EventPayloadMapping>(key: K
 
 export function validateEventFrame(frame: WebFrameMain) {
     console.log(frame.url)
-    if (isDev() && new URL(frame.url).host === 'localhost:5125') {
+    if (isDev() && new URL(frame.url).host === 'localhost:5123') {
         return;
     }
     if (frame.url !== pathToFileURL(getUIPath()).toString()) {
