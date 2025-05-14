@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './NotesViewer.css';
 import SingleNote from './SingleNote/SingleNote';
+import ConfigButton from '../ConfigButton/ConfigButton';
 
 declare global {
     interface Window {
@@ -55,7 +56,7 @@ const NotesViewer: React.FC = () => {
     return (
         <div className="data-container">
             <div>
-                {config === defaultConfig ? "请设置config" : <div>{config.name}</div>}
+                {config === defaultConfig ? "请设置config" : <ConfigButton config={config} />}
             </div>
             <div className="data-display">
                 {error && <p className="error">Error: {error}</p>}
