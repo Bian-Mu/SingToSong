@@ -1,3 +1,4 @@
+import "./SingleNote.css"
 import React from 'react';
 import { Typography } from 'antd';
 
@@ -23,12 +24,16 @@ const SingleNote: React.FC<SingleNoteProps> = ({ pitchunion, config }) => {
     const renderStep1 = () => {
         if (k > 0) {
             // 添加k条横线
-            const underline = '_'.repeat(pitchunion.note.length * Math.floor(k));
+            let nums: string = ""
+            if (k == 2) {
+                nums = "double"
+            } else if (k == 3) {
+                nums = "line-through overline"
+            } else if (k == 4) {
+                nums = "line-through overline dotted"
+            }
             return (
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <Text>{pitchunion.note}</Text>
-                    <Text>{underline}</Text>
-                </div>
+                <Text style={{ textDecoration: `underline ${nums}` }}>{pitchunion.note}</Text>
             );
         } else if (k < 0) {
             // 添加standard/cut-1条有空格间隙的减号
@@ -56,27 +61,30 @@ const SingleNote: React.FC<SingleNoteProps> = ({ pitchunion, config }) => {
             if (pitchunion.sustain) {
                 return (
                     <Text>
-                        {step1Result}{' — '.repeat(m - 1).trim()}
+                        {step1Result}&nbsp;{' — '.repeat(m - 1).trim()}
                     </Text>
                 )
             }
             return (
                 <Text>
                     {Array(Math.floor(m)).fill(0).map((_, i) => (
-                        <React.Fragment key={i}>{step1Result}</React.Fragment>
+                        <React.Fragment key={i}>{step1Result}&nbsp; </React.Fragment>
                     ))}
                 </Text>
             );
         } else if (m < 1) {
-            // 计算n值
             const n = Math.log2(m);
             // 添加n条横线
-            const underline = '_'.repeat(pitchunion.note.length * Math.floor(Math.abs(n)));
+            let nums: string = ""
+            if (n == 2) {
+                nums = "double"
+            } else if (n == 3) {
+                nums = "line-through overline"
+            } else if (n == 4) {
+                nums = "line-through overline dotted"
+            }
             return (
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    {step1Result}
-                    <Text>{underline}</Text>
-                </div>
+                <Text style={{ textDecoration: `underline ${nums}` }}>{step1Result}</Text>
             );
         } else if (m > 1 && !Number.isInteger(m)) {
             // 处理1.5, 2.5等情况
@@ -86,7 +94,7 @@ const SingleNote: React.FC<SingleNoteProps> = ({ pitchunion, config }) => {
                     {Array(integerPart).fill(0).map((_, i) => (
                         <React.Fragment key={i}>{step1Result}</React.Fragment>
                     ))}
-                    <Text strong>.</Text>
+                    <Text strong> .</Text>
                 </Text>
             );
         }
@@ -94,7 +102,7 @@ const SingleNote: React.FC<SingleNoteProps> = ({ pitchunion, config }) => {
     };
 
     return (
-        <div style={{ fontFamily: 'monospace', fontSize: '16px' }}>
+        <div className='single-note'>
             {renderFinalResult()}
         </div>
     );

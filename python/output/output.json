@@ -11,9 +11,9 @@
     {
         "track": 2,
         "cut": 4,
-        "sustain": false,
+        "sustain": true,
         "start_beat": 2.0,
-        "duration": 1.0,
+        "duration": 1.5,
         "note": "G4",
         "instrument": 11
     },
