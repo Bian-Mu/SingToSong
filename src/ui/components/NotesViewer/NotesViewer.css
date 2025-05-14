@@ -1,0 +1,14 @@
+#music-sheet {
+    height: 100%;
+    width: 100%;
+}
+
+#sheet-head {
+    height: 20%;
+    display: grid;
+    grid-template-rows: 3fr 2fr;
+}
+
+.ant-divider {
+    margin: 8px 0 8px 0;
+}

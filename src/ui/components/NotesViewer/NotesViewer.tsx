@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './NotesViewer.css';
 import SingleNote from './SingleNote/SingleNote';
 import ConfigButton from '../ConfigButton/ConfigButton';
+import { Divider } from 'antd';
 
 declare global {
     interface Window {
@@ -54,25 +55,26 @@ const NotesViewer: React.FC = () => {
     }, []);
 
     return (
-        <div className="data-container">
-            <div>
+        <div id="music-sheet">
+            <div id='sheet-head'>
                 {config === defaultConfig ? "请设置config" : <ConfigButton config={config} />}
             </div>
-            <div className="data-display">
+            <Divider />
+            <div className="sheet-body">
                 {error && <p className="error">Error: {error}</p>}
-                {data && data.map(element => {
-                    return <SingleNote pitchunion={element} />
+                {(data && config) && data.map(element => {
+                    return <SingleNote pitchunion={element} config={config} />
                 })
                 }
             </div>
 
-            <div className="action-panel">
+            {/* <div className="action-panel">
                 <button
                     onClick={readNotes}
                 >
                     刷新
                 </button>
-            </div>
+            </div> */}
         </div>
     );
 };
