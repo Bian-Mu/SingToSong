@@ -1,38 +1,44 @@
-export function groupUnionsIntoMeters(pithcunions: PitchUnion[], meters: number): { groupedUnions: PitchUnion[], groupNumbers: number[] } {
-    // First, sort the unions by their start time
-    const sortedUnions = [...pithcunions].sort((a, b) => a.start_beat - b.start_beat);
+export function groupUnionsIntoMeters(unions: PitchUnion[], meters: number): { groupedUnions: PitchUnion[], groupNumbers: number[] } {
+    if (meters <= 0) throw new Error("meters must be positive");
+
+    // 1. 按 start 排序所有区间
+    const sortedUnions = [...unions].sort((a, b) => a.start_beat - b.start_beat);
 
     const result: PitchUnion[] = [];
     const groupNumbers: number[] = [];
 
     let currentPos = 0;
     let unionIndex = 0;
+    const totalEnd = getTotalEnd(sortedUnions);
 
-    while (unionIndex < sortedUnions.length || currentPos < getTotalEnd(sortedUnions)) {
-        const currentGroupStart = Math.floor(currentPos / meters) * meters;
-        const currentGroupEnd = currentGroupStart + meters;
+    // 2. 计算需要覆盖的总长度（向上取整到 meters 的倍数）
+    const totalGroups = Math.ceil(Math.max(totalEnd, currentPos) / meters);
+    const totalCoverage = totalGroups * meters;
 
-        // Check if we're before the next union
+    while (currentPos < totalCoverage) {
+        const groupStart = Math.floor(currentPos / meters) * meters;
+        const groupEnd = groupStart + meters;
+
+        // 情况1：当前位置在当前 union 之前 → 填充空白
         if (unionIndex < sortedUnions.length && currentPos < sortedUnions[unionIndex].start_beat) {
-            const gapStart = currentPos;
-            const gapEnd = Math.min(sortedUnions[unionIndex].start_beat, currentGroupEnd);
-            const gapDuration = gapEnd - gapStart;
+            const fillEnd = Math.min(sortedUnions[unionIndex].start_beat, groupEnd);
+            const fillDuration = fillEnd - currentPos;
 
-            if (gapDuration > 0) {
+            if (fillDuration > 0) {
                 result.push({
-                    start_beat: gapStart,
-                    duration: gapDuration,
+                    start_beat: currentPos,
+                    duration: fillDuration,
                     note: "0",
                     cut: 4,
-                    track: pithcunions[0].track,
+                    track: unions[0].track,
                     sustain: false,
                     instrument: 0
                 });
-                groupNumbers.push(Math.floor(gapStart / meters));
-                currentPos = gapEnd;
+                groupNumbers.push(Math.floor(currentPos / meters));
             }
+            currentPos = fillEnd;
         }
-        // Process the current union
+        // 情况2：处理当前 union
         else if (unionIndex < sortedUnions.length) {
             const union = sortedUnions[unionIndex];
             result.push({ ...union });
@@ -40,40 +46,30 @@ export function groupUnionsIntoMeters(pithcunions: PitchUnion[], meters: number)
             currentPos = union.start_beat + union.duration;
             unionIndex++;
         }
-        // Fill any remaining space after the last union
+        // 情况3：所有 union 处理完毕 → 填充剩余空白
         else {
-            const gapStart = currentPos;
-            const gapEnd = currentGroupEnd;
-            const gapDuration = gapEnd - gapStart;
+            const fillEnd = groupEnd;
+            const fillDuration = fillEnd - currentPos;
 
-            if (gapDuration > 0) {
+            if (fillDuration > 0) {
                 result.push({
-                    start_beat: gapStart,
-                    duration: gapDuration,
+                    start_beat: currentPos,
+                    duration: fillDuration,
                     note: "0",
                     cut: 4,
-                    track: pithcunions[0].track,
+                    track: unions[0].track,
                     sustain: false,
                     instrument: 0
-
                 });
-                groupNumbers.push(Math.floor(gapStart / meters));
-                currentPos = gapEnd;
-            } else {
-                currentPos = currentGroupEnd;
+                groupNumbers.push(Math.floor(currentPos / meters));
             }
+            currentPos = fillEnd;
         }
     }
 
-    return {
-        groupedUnions: result,
-        groupNumbers: groupNumbers
-    };
+    return { groupedUnions: result, groupNumbers };
 }
 
 function getTotalEnd(unions: PitchUnion[]): number {
-    if (unions.length === 0) return 0;
-    const lastUnion = unions[unions.length - 1];
-    return lastUnion.start_beat + lastUnion.duration;
+    return unions.length === 0 ? 0 : unions[unions.length - 1].start_beat + unions[unions.length - 1].duration;
 }
-

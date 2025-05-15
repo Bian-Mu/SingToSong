@@ -33,20 +33,23 @@ const SingleNote: React.FC<SingleNoteProps> = ({ pitchunion, config }) => {
                 nums = "line-through overline dotted"
             }
             return (
-                <Text style={{ textDecoration: `underline ${nums}` }}>{pitchunion.note}</Text>
+                <Text><Text style={{ textDecoration: `underline ${nums}` }}>{pitchunion.note}</Text></Text>
             );
         } else if (k < 0) {
             // 添加standard/cut-1条有空格间隙的减号
             const dash = pitchunion.sustain
-                ? ` ── `.repeat(standard / pitchunion.cut - 1).trim()
-                : `${pitchunion.note} `.repeat(standard / pitchunion.cut - 1).trim();
+                ? `　─　`.repeat(standard / pitchunion.cut - 1).trim()
+                : `${pitchunion.note}　`.repeat(standard / pitchunion.cut - 1).trim();
             return (
                 <Text>
-                    {pitchunion.note} {dash}
+                    {pitchunion.note}{dash}
                 </Text>
             );
         }
-        return <Text>{pitchunion.note}</Text>;
+        if (pitchunion.note === "0") {
+            return "0";
+        }
+        return <Text>　{pitchunion.note}　</Text>;
     };
 
     // 计算m值
@@ -61,16 +64,25 @@ const SingleNote: React.FC<SingleNoteProps> = ({ pitchunion, config }) => {
             if (pitchunion.sustain) {
                 return (
                     <Text>
-                        {step1Result}{` ── `.repeat(m - 1).trim()}
+                        {step1Result}{`　─　`.repeat(m - 1).trim()}
                     </Text>
                 )
             }
+            if (step1Result === "0") {
+                return (
+                    <Text>
+                        {Array(Math.floor(m)).fill(0).map((_, i) => (
+                            <React.Fragment key={i}>{"　"}{step1Result}{i !== Math.floor(m) - 2 && "　"}</React.Fragment>
+                        ))}
+                    </Text>
+                );
+            }
             return (
-                <Text>
+                <div className="unsustain-repeat-note">
                     {Array(Math.floor(m)).fill(0).map((_, i) => (
-                        <React.Fragment key={i}>{step1Result}&nbsp; </React.Fragment>
+                        <React.Fragment key={i}>{step1Result}</React.Fragment>
                     ))}
-                </Text>
+                </div>
             );
         } else if (m < 1) {
             const n = Math.log2(m);
@@ -83,6 +95,15 @@ const SingleNote: React.FC<SingleNoteProps> = ({ pitchunion, config }) => {
             } else if (n == 4) {
                 nums = "line-through overline dotted"
             }
+
+            if (step1Result === "0") {
+                return (<Text>{"　"}
+                    <Text style={{ textDecoration: `underline ${nums}` }}>{step1Result}</Text>
+                    {"　"}
+                </Text>
+
+                );
+            }
             return (
                 <Text style={{ textDecoration: `underline ${nums}` }}>{step1Result}</Text>
             );
@@ -94,7 +115,7 @@ const SingleNote: React.FC<SingleNoteProps> = ({ pitchunion, config }) => {
                     {Array(integerPart).fill(0).map((_, i) => (
                         <React.Fragment key={i}>{step1Result}</React.Fragment>
                     ))}
-                    <Text strong> .</Text>
+                    <Text strong>.</Text>
                 </Text>
             );
         }
