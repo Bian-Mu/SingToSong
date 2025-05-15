@@ -4,9 +4,10 @@
 }
 
 #sheet-head {
-    height: 20%;
+    height: 30%;
+    min-height: 200px;
     display: grid;
-    grid-template-rows: 3fr 2fr;
+    grid-template-rows: 2fr 2fr;
 }
 
 .ant-divider {
@@ -15,4 +16,26 @@
 
 #track-select {
     margin: 10px;
+}
+
+#sheet-body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.big-group {
+    display: flex;
+    align-items: center;
+    font-size: 36px;
+    height: 60px;
+    line-height: 60px;
+    width: 100%;
+}
+
+.small-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 23%;
 }

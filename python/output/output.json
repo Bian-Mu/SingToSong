@@ -49,8 +49,44 @@
         "cut": 4,
         "sustain": false,
         "start_beat": 10.0,
-        "duration": 3.0,
+        "duration": 2.0,
         "note": "D5",
+        "instrument": 1
+    },
+    {
+        "track": 1,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 12.0,
+        "duration": 4.0,
+        "note": "G4",
+        "instrument": 1
+    },
+    {
+        "track": 1,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 16.0,
+        "duration": 4.0,
+        "note": "G4",
+        "instrument": 1
+    },
+    {
+        "track": 1,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 20.0,
+        "duration": 4.0,
+        "note": "G4",
+        "instrument": 1
+    },
+    {
+        "track": 1,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 24.0,
+        "duration": 4.0,
+        "note": "G4",
         "instrument": 1
     }
 ]

@@ -38,7 +38,7 @@ const SingleNote: React.FC<SingleNoteProps> = ({ pitchunion, config }) => {
         } else if (k < 0) {
             // 添加standard/cut-1条有空格间隙的减号
             const dash = pitchunion.sustain
-                ? ' — '.repeat(standard / pitchunion.cut - 1).trim()
+                ? ` ── `.repeat(standard / pitchunion.cut - 1).trim()
                 : `${pitchunion.note} `.repeat(standard / pitchunion.cut - 1).trim();
             return (
                 <Text>
@@ -61,7 +61,7 @@ const SingleNote: React.FC<SingleNoteProps> = ({ pitchunion, config }) => {
             if (pitchunion.sustain) {
                 return (
                     <Text>
-                        {step1Result}&nbsp;{' — '.repeat(m - 1).trim()}
+                        {step1Result}{` ── `.repeat(m - 1).trim()}
                     </Text>
                 )
             }
