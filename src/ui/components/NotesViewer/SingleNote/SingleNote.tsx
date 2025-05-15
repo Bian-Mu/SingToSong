@@ -33,7 +33,7 @@ const SingleNote: React.FC<SingleNoteProps> = ({ pitchunion, config }) => {
                 nums = "line-through overline dotted"
             }
             return (
-                <Text><Text style={{ textDecoration: `underline ${nums}` }}>{pitchunion.note}</Text></Text>
+                <Text>&nbsp;<Text style={{ textDecoration: `underline ${nums}` }}>{pitchunion.note}</Text>&nbsp;</Text>
             );
         } else if (k < 0) {
             // 添加standard/cut-1条有空格间隙的减号
