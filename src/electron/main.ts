@@ -84,6 +84,19 @@ ipcMainHandle('readConfig', async () => {
     }
 });
 
+ipcMainHandle('processMidi', async () => {
+    try {
+        const response = await axios.post('http://localhost:5000/process-midi');
+        if (response.data.success) {
+            return true
+        }
+        return false
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return false
+    }
+});
+
 const defaultConfig: Config = {
     name: "default",
     tempo: 60,

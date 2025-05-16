@@ -11,7 +11,8 @@ contextBridge.exposeInMainWorld("electron", {
 
 contextBridge.exposeInMainWorld("electronAPI", {
     readNotes: () => ipcInvoke('readNotes'),
-    readConfig: () => ipcInvoke('readConfig')
+    readConfig: () => ipcInvoke('readConfig'),
+    processMidi: () => ipcInvoke('processMidi')
 })
 
 

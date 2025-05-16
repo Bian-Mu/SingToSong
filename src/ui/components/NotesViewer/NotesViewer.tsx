@@ -9,7 +9,8 @@ declare global {
     interface Window {
         electronAPI: {
             readNotes: () => Promise<PitchUnion[]>;
-            readConfig: () => Promise<Config>
+            readConfig: () => Promise<Config>;
+            processMidi: () => Promise<boolean>
         };
     }
 }
@@ -27,7 +28,6 @@ const defaultConfig: Config = {
 
 const NotesViewer: React.FC = () => {
     const [data, setData] = useState<PitchUnion[][][]>([]);
-    // const [group, setGroup] = useState<number[]>([]);
     const [config, setConfig] = useState<Config>(defaultConfig)
     const [error, setError] = useState<string | null>(null);
     const [track, setTrack] = useState<number>(0)
@@ -87,6 +87,10 @@ const NotesViewer: React.FC = () => {
                 {error && <p className="error">Error: {error}</p>}
                 {data.map((bigGroup, bigGroupIndex) => (
                     <div key={`big-group-${bigGroupIndex}`} className="big-group">
+                        <span style={{ fontSize: "12px", width: "20px" }}>
+                            {16 * (bigGroupIndex)}
+                        </span>
+
                         {`|`}
                         {bigGroup.map((smallGroup, smallGroupIndex) => (
                             <React.Fragment key={`small-group-wrapper-${bigGroupIndex}-${smallGroupIndex}`}>

@@ -88,5 +88,140 @@
         "duration": 4.0,
         "note": "G4",
         "instrument": 1
+    },
+    {
+        "track": 1,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 28.0,
+        "duration": 4.0,
+        "note": "G4",
+        "instrument": 1
+    },
+    {
+        "track": 1,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 32.0,
+        "duration": 4.0,
+        "note": "G4",
+        "instrument": 1
+    },
+    {
+        "track": 1,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 36.0,
+        "duration": 4.0,
+        "note": "G4",
+        "instrument": 1
+    },
+    {
+        "track": 1,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 40.0,
+        "duration": 4.0,
+        "note": "G4",
+        "instrument": 1
+    },
+    {
+        "track": 1,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 44.0,
+        "duration": 4.0,
+        "note": "G4",
+        "instrument": 1
+    },
+    {
+        "track": 1,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 48.0,
+        "duration": 4.0,
+        "note": "G4",
+        "instrument": 1
+    },
+    {
+        "track": 1,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 52.0,
+        "duration": 4.0,
+        "note": "G4",
+        "instrument": 1
+    },
+    {
+        "track": 1,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 56.0,
+        "duration": 4.0,
+        "note": "G4",
+        "instrument": 1
+    },
+    {
+        "track": 1,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 60.0,
+        "duration": 4.0,
+        "note": "G4",
+        "instrument": 1
+    },
+    {
+        "track": 1,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 64.0,
+        "duration": 4.0,
+        "note": "G4",
+        "instrument": 1
+    },
+    {
+        "track": 1,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 72.0,
+        "duration": 4.0,
+        "note": "G4",
+        "instrument": 1
+    },
+    {
+        "track": 1,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 76.0,
+        "duration": 4.0,
+        "note": "G4",
+        "instrument": 1
+    },
+    {
+        "track": 1,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 80.0,
+        "duration": 4.0,
+        "note": "G4",
+        "instrument": 1
+    },
+    {
+        "track": 1,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 88.0,
+        "duration": 4.0,
+        "note": "G4",
+        "instrument": 1
+    },
+    {
+        "track": 1,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 120.0,
+        "duration": 4.0,
+        "note": "G4",
+        "instrument": 1
     }
 ]
