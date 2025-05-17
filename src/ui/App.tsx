@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 import NotesViewer from './components/NotesViewer/NotesViewer'
 import NoteAddBox from './components/NoteAddBox/NoteAddBox'
