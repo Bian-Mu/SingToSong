@@ -34,6 +34,7 @@ type EventPayloadMapping = {
     readNotes: PitchUnion[]
     readConfig: Config
     processMidi: boolean
+    writeNotes: boolean
 }
 
 type UnSubscribeFunction = () => void

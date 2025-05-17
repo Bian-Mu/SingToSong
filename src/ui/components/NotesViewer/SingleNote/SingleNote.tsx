@@ -10,7 +10,7 @@ interface SingleNoteProps {
 }
 
 //1、根据2^k=cut/standard的值，如果k>0,在pitchunion.noteing底下添加k条横线，
-// 如果k<0，在pitchunion.noteing右边添加standard/cut-1条有空格间隙的减号（如果sustain为false,则所有减号变成pitchunion.noteing的重复），
+// 如果k<0，在pitchunion.noteing右边添加standard/cut-1条有空格间隙的减号（如果sustain为false,则所有减号变成pitchunion.note的重复），
 // 如果k=0则什么都不做；
 //2、根据m=duration/(standard/cut)，如果m是整数，则将规则1的结果执行m次，
 // 如果m小于1,那m一定是2^n(n为负整数)，此时在规则1的结果下添加n条横线，

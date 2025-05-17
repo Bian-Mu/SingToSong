@@ -10,7 +10,8 @@ declare global {
         electronAPI: {
             readNotes: () => Promise<PitchUnion[]>;
             readConfig: () => Promise<Config>;
-            processMidi: () => Promise<boolean>
+            processMidi: () => Promise<boolean>;
+            writeNotes: (new_note: PitchUnion) => Promise<boolean>
         };
     }
 }
@@ -26,7 +27,12 @@ const defaultConfig: Config = {
     keySignature: "C"
 }
 
-const NotesViewer: React.FC = () => {
+interface NotesViewerProps {
+    refresh: number
+}
+
+
+const NotesViewer: React.FC<NotesViewerProps> = ({ refresh }) => {
     const [data, setData] = useState<PitchUnion[][][]>([]);
     const [config, setConfig] = useState<Config>(defaultConfig)
     const [error, setError] = useState<string | null>(null);
@@ -61,7 +67,7 @@ const NotesViewer: React.FC = () => {
 
     useEffect(() => {
         readNotes();
-    }, [track]);
+    }, [track, refresh]);
 
 
 

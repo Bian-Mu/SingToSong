@@ -1,5 +1,5 @@
 import json
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import os
 
 from wavToPitch.midi import midi_to_wav, notes_to_midi
@@ -13,7 +13,6 @@ OUTPUT_MIDI = os.path.join(BASE_DIR,"output/output.mid")
 OUTPUT_WAV = os.path.join(BASE_DIR,"output/output.wav")
 CONFIG_PATH = os.path.join(BASE_DIR,"output/configs.json")
 
-
 @app.route('/read-config', methods=['GET'])
 def read_config():
     try:
@@ -24,6 +23,7 @@ def read_config():
         return jsonify({"success": False, "error": "File not found"})
     except Exception as e:
         return jsonify({"success": False, "error": str(e)})
+    
 
 @app.route('/read-notes', methods=['GET'])
 def read_notes():
@@ -37,8 +37,10 @@ def read_notes():
         return jsonify({"success": False, "error": str(e)})
 
 @app.route('/write-notes', methods=['POST'])
-def write_notes(new_note:PitchUnion):
+def write_notes():
     try:
+        new_note:PitchUnion = PitchUnion(**request.get_json())
+        
         if os.path.exists(OUTPUT_JSON):
             addNote(new_note,OUTPUT_JSON)
             return jsonify({"success": True})

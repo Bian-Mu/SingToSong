@@ -4,17 +4,44 @@ import React, { useState } from 'react';
 import { Form, InputNumber, Select, Button, message, Input } from 'antd';
 import WavCreateButton from "./WavCreateButton/WavCreateButton";
 
+interface NoteAddBoxProps {
+    onRefresh: Function
+}
 
-const NoteAddBox: React.FC = () => {
+const NoteAddBox: React.FC<NoteAddBoxProps> = ({ onRefresh }) => {
     const [form] = Form.useForm();
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [messageApi, contextHolder] = message.useMessage();
 
-    const onFinish = (values: any) => {
+    const onFinish = async (values: any) => {
         setIsSubmitting(true);
-        console.log('Form values:', values);
-        // 这里可以添加提交逻辑
-        message.success('提交成功！');
-        setIsSubmitting(false);
+
+        const new_note: PitchUnion = {
+            track: values.track,
+            instrument: values.instrument,
+            cut: values.cut,
+            note: values.note,
+            start_beat: values.start_beat,
+            duration: values.duration,
+            sustain: values.sustain === 'True'
+        };
+
+        try {
+            const result = await window.electronAPI.writeNotes(new_note)
+
+            if (result) {
+                messageApi.success('音符添加成功');
+                onRefresh()
+                form.resetFields();
+            } else {
+                messageApi.error("出错了")
+            }
+
+        } catch (error) {
+            console.error('提交出错:', error);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const onFinishFailed = (errorInfo: any) => {
@@ -36,6 +63,7 @@ const NoteAddBox: React.FC = () => {
 
     return (
         <div>
+            {contextHolder}
             <div id="params-input-box">
                 <Form
                     id="params-input"
@@ -73,7 +101,7 @@ const NoteAddBox: React.FC = () => {
                         name="cut"
                         rules={[{ required: true, message: '请选择cut' }]}
                     >
-                        <Select defaultValue={`4`}>
+                        <Select>
                             {[2, 4, 8, 16, 32].map((value) => (
                                 <Select.Option key={value} value={value}>
                                     {value}
@@ -88,7 +116,7 @@ const NoteAddBox: React.FC = () => {
                         name="note"
                         rules={[{ required: true, message: '请输入格式正确的note' }]}
                     >
-                        <Input defaultValue={`C4`} />
+                        <Input />
                     </Form.Item>
 
                     <Form.Item
@@ -140,16 +168,14 @@ const NoteAddBox: React.FC = () => {
                         <Button
                             htmlType="submit"
                             loading={isSubmitting}
+                            onClick={() => form.submit()}
                         >
                             添加音符
                         </Button>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     );
 };
 

@@ -1,0 +1,642 @@
+[
+    {
+        "label": "Acoustic Grand Piano",
+        "value": "大钢琴（原声）",
+        "index": 0
+    },
+    {
+        "label": "Bright Acoustic Piano",
+        "value": "明亮钢琴",
+        "index": 1
+    },
+    {
+        "label": "Electric Grand Piano",
+        "value": "电钢琴",
+        "index": 2
+    },
+    {
+        "label": "Honky-tonk Piano",
+        "value": "酒吧钢琴",
+        "index": 3
+    },
+    {
+        "label": "Electric Piano 1",
+        "value": "电钢琴1（FM）",
+        "index": 4
+    },
+    {
+        "label": "Electric Piano 2",
+        "value": "电钢琴2（DX）",
+        "index": 5
+    },
+    {
+        "label": "Harpsichord",
+        "value": "大键琴",
+        "index": 6
+    },
+    {
+        "label": "Clavi",
+        "value": "克拉维琴",
+        "index": 7
+    },
+    {
+        "label": "Celesta",
+        "value": "钢片琴",
+        "index": 8
+    },
+    {
+        "label": "Glockenspiel",
+        "value": "钟琴",
+        "index": 9
+    },
+    {
+        "label": "Music Box",
+        "value": "八音盒",
+        "index": 10
+    },
+    {
+        "label": "Vibraphone",
+        "value": "颤音琴",
+        "index": 11
+    },
+    {
+        "label": "Marimba",
+        "value": "马林巴",
+        "index": 12
+    },
+    {
+        "label": "Xylophone",
+        "value": "木琴",
+        "index": 13
+    },
+    {
+        "label": "Tubular Bells",
+        "value": "管钟",
+        "index": 14
+    },
+    {
+        "label": "Dulcimer",
+        "value": "扬琴",
+        "index": 15
+    },
+    {
+        "label": "Drawbar Organ",
+        "value": "拉杆风琴",
+        "index": 16
+    },
+    {
+        "label": "Percussive Organ",
+        "value": "打击风琴",
+        "index": 17
+    },
+    {
+        "label": "Rock Organ",
+        "value": "摇滚风琴",
+        "index": 18
+    },
+    {
+        "label": "Church Organ",
+        "value": "教堂管风琴",
+        "index": 19
+    },
+    {
+        "label": "Reed Organ",
+        "value": "簧风琴",
+        "index": 20
+    },
+    {
+        "label": "Accordion",
+        "value": "手风琴",
+        "index": 21
+    },
+    {
+        "label": "Harmonica",
+        "value": "口琴",
+        "index": 22
+    },
+    {
+        "label": "Tango Accordion",
+        "value": "探戈手风琴",
+        "index": 23
+    },
+    {
+        "label": "Acoustic Guitar (Nylon)",
+        "value": "尼龙弦吉他",
+        "index": 24
+    },
+    {
+        "label": "Acoustic Guitar (Steel)",
+        "value": "钢弦吉他",
+        "index": 25
+    },
+    {
+        "label": "Electric Guitar (Jazz)",
+        "value": "爵士电吉他",
+        "index": 26
+    },
+    {
+        "label": "Electric Guitar (Clean)",
+        "value": "清音电吉他",
+        "index": 27
+    },
+    {
+        "label": "Electric Guitar (Muted)",
+        "value": "闷音电吉他",
+        "index": 28
+    },
+    {
+        "label": "Overdriven Guitar",
+        "value": "过载电吉他",
+        "index": 29
+    },
+    {
+        "label": "Distortion Guitar",
+        "value": "失真电吉他",
+        "index": 30
+    },
+    {
+        "label": "Guitar Harmonics",
+        "value": "吉他泛音",
+        "index": 31
+    },
+    {
+        "label": "Acoustic Bass",
+        "value": "原声贝斯",
+        "index": 32
+    },
+    {
+        "label": "Electric Bass (Finger)",
+        "value": "指弹电贝斯",
+        "index": 33
+    },
+    {
+        "label": "Electric Bass (Pick)",
+        "value": "拨片电贝斯",
+        "index": 34
+    },
+    {
+        "label": "Fretless Bass",
+        "value": "无品贝斯",
+        "index": 35
+    },
+    {
+        "label": "Slap Bass 1",
+        "value": "击弦贝斯1",
+        "index": 36
+    },
+    {
+        "label": "Slap Bass 2",
+        "value": "击弦贝斯2",
+        "index": 37
+    },
+    {
+        "label": "Synth Bass 1",
+        "value": "合成贝斯1",
+        "index": 38
+    },
+    {
+        "label": "Synth Bass 2",
+        "value": "合成贝斯2",
+        "index": 39
+    },
+    {
+        "label": "Violin",
+        "value": "小提琴",
+        "index": 40
+    },
+    {
+        "label": "Viola",
+        "value": "中提琴",
+        "index": 41
+    },
+    {
+        "label": "Cello",
+        "value": "大提琴",
+        "index": 42
+    },
+    {
+        "label": "Contrabass",
+        "value": "低音提琴",
+        "index": 43
+    },
+    {
+        "label": "Tremolo Strings",
+        "value": "颤音弦乐",
+        "index": 44
+    },
+    {
+        "label": "Pizzicato Strings",
+        "value": "拨奏弦乐",
+        "index": 45
+    },
+    {
+        "label": "Orchestral Harp",
+        "value": "竖琴",
+        "index": 46
+    },
+    {
+        "label": "Timpani",
+        "value": "定音鼓",
+        "index": 47
+    },
+    {
+        "label": "String Ensemble 1",
+        "value": "弦乐合奏1",
+        "index": 48
+    },
+    {
+        "label": "String Ensemble 2",
+        "value": "弦乐合奏2",
+        "index": 49
+    },
+    {
+        "label": "Synth Strings 1",
+        "value": "合成弦乐1",
+        "index": 50
+    },
+    {
+        "label": "Synth Strings 2",
+        "value": "合成弦乐2",
+        "index": 51
+    },
+    {
+        "label": "Choir Aahs",
+        "value": "人声“啊”",
+        "index": 52
+    },
+    {
+        "label": "Voice Oohs",
+        "value": "人声“哦”",
+        "index": 53
+    },
+    {
+        "label": "Synth Voice",
+        "value": "合成人声",
+        "index": 54
+    },
+    {
+        "label": "Orchestra Hit",
+        "value": "管弦乐齐奏",
+        "index": 55
+    },
+    {
+        "label": "Trumpet",
+        "value": "小号",
+        "index": 56
+    },
+    {
+        "label": "Trombone",
+        "value": "长号",
+        "index": 57
+    },
+    {
+        "label": "Tuba",
+        "value": "大号",
+        "index": 58
+    },
+    {
+        "label": "Muted Trumpet",
+        "value": "弱音小号",
+        "index": 59
+    },
+    {
+        "label": "French Horn",
+        "value": "圆号",
+        "index": 60
+    },
+    {
+        "label": "Brass Section",
+        "value": "铜管组",
+        "index": 61
+    },
+    {
+        "label": "Synth Brass 1",
+        "value": "合成铜管1",
+        "index": 62
+    },
+    {
+        "label": "Synth Brass 2",
+        "value": "合成铜管2",
+        "index": 63
+    },
+    {
+        "label": "Soprano Sax",
+        "value": "高音萨克斯",
+        "index": 64
+    },
+    {
+        "label": "Alto Sax",
+        "value": "中音萨克斯",
+        "index": 65
+    },
+    {
+        "label": "Tenor Sax",
+        "value": "次中音萨克斯",
+        "index": 66
+    },
+    {
+        "label": "Baritone Sax",
+        "value": "上低音萨克斯",
+        "index": 67
+    },
+    {
+        "label": "Oboe",
+        "value": "双簧管",
+        "index": 68
+    },
+    {
+        "label": "English Horn",
+        "value": "英国管",
+        "index": 69
+    },
+    {
+        "label": "Bassoon",
+        "value": "巴松管",
+        "index": 70
+    },
+    {
+        "label": "Clarinet",
+        "value": "单簧管",
+        "index": 71
+    },
+    {
+        "label": "Piccolo",
+        "value": "短笛",
+        "index": 72
+    },
+    {
+        "label": "Flute",
+        "value": "长笛",
+        "index": 73
+    },
+    {
+        "label": "Recorder",
+        "value": "竖笛",
+        "index": 74
+    },
+    {
+        "label": "Pan Flute",
+        "value": "排箫",
+        "index": 75
+    },
+    {
+        "label": "Blown Bottle",
+        "value": "吹瓶声",
+        "index": 76
+    },
+    {
+        "label": "Shakuhachi",
+        "value": "尺八",
+        "index": 77
+    },
+    {
+        "label": "Whistle",
+        "value": "哨子",
+        "index": 78
+    },
+    {
+        "label": "Ocarina",
+        "value": "陶笛",
+        "index": 79
+    },
+    {
+        "label": "Lead 1 (Square)",
+        "value": "方波主音",
+        "index": 80
+    },
+    {
+        "label": "Lead 2 (Sawtooth)",
+        "value": "锯齿波主音",
+        "index": 81
+    },
+    {
+        "label": "Lead 3 (Calliope)",
+        "value": "汽笛风琴主音",
+        "index": 82
+    },
+    {
+        "label": "Lead 4 (Chiff)",
+        "value": "短笛主音",
+        "index": 83
+    },
+    {
+        "label": "Lead 5 (Charang)",
+        "value": "合成主音5",
+        "index": 84
+    },
+    {
+        "label": "Lead 6 (Voice)",
+        "value": "人声主音",
+        "index": 85
+    },
+    {
+        "label": "Lead 7 (Fifths)",
+        "value": "五度主音",
+        "index": 86
+    },
+    {
+        "label": "Lead 8 (Bass + Lead)",
+        "value": "贝斯+主音",
+        "index": 87
+    },
+    {
+        "label": "Pad 1 (New Age)",
+        "value": "新世纪背景",
+        "index": 88
+    },
+    {
+        "label": "Pad 2 (Warm)",
+        "value": "温暖背景",
+        "index": 89
+    },
+    {
+        "label": "Pad 3 (Polysynth)",
+        "value": "复音合成背景",
+        "index": 90
+    },
+    {
+        "label": "Pad 4 (Choir)",
+        "value": "合唱背景",
+        "index": 91
+    },
+    {
+        "label": "Pad 5 (Bowed)",
+        "value": "弓弦背景",
+        "index": 92
+    },
+    {
+        "label": "Pad 6 (Metallic)",
+        "value": "金属背景",
+        "index": 93
+    },
+    {
+        "label": "Pad 7 (Halo)",
+        "value": "光环背景",
+        "index": 94
+    },
+    {
+        "label": "Pad 8 (Sweep)",
+        "value": "扫频背景",
+        "index": 95
+    },
+    {
+        "label": "FX 1 (Rain)",
+        "value": "雨声效果",
+        "index": 96
+    },
+    {
+        "label": "FX 2 (Soundtrack)",
+        "value": "电影音效",
+        "index": 97
+    },
+    {
+        "label": "FX 3 (Crystal)",
+        "value": "水晶效果",
+        "index": 98
+    },
+    {
+        "label": "FX 4 (Atmosphere)",
+        "value": "氛围效果",
+        "index": 99
+    },
+    {
+        "label": "FX 5 (Brightness)",
+        "value": "明亮效果",
+        "index": 100
+    },
+    {
+        "label": "FX 6 (Goblins)",
+        "value": "哥布林效果",
+        "index": 101
+    },
+    {
+        "label": "FX 7 (Echoes)",
+        "value": "回声效果",
+        "index": 102
+    },
+    {
+        "label": "FX 8 (Sci-Fi)",
+        "value": "科幻效果",
+        "index": 103
+    },
+    {
+        "label": "Sitar",
+        "value": "西塔琴",
+        "index": 104
+    },
+    {
+        "label": "Banjo",
+        "value": "班卓琴",
+        "index": 105
+    },
+    {
+        "label": "Shamisen",
+        "value": "三味线",
+        "index": 106
+    },
+    {
+        "label": "Koto",
+        "value": "日本筝",
+        "index": 107
+    },
+    {
+        "label": "Kalimba",
+        "value": "卡林巴",
+        "index": 108
+    },
+    {
+        "label": "Bagpipe",
+        "value": "风笛",
+        "index": 109
+    },
+    {
+        "label": "Fiddle",
+        "value": "民间小提琴",
+        "index": 110
+    },
+    {
+        "label": "Shanai",
+        "value": "唢呐",
+        "index": 111
+    },
+    {
+        "label": "Tinkle Bell",
+        "value": "铃铛",
+        "index": 112
+    },
+    {
+        "label": "Agogo",
+        "value": "阿哥哥鼓",
+        "index": 113
+    },
+    {
+        "label": "Steel Drums",
+        "value": "钢鼓",
+        "index": 114
+    },
+    {
+        "label": "Woodblock",
+        "value": "木鱼",
+        "index": 115
+    },
+    {
+        "label": "Taiko Drum",
+        "value": "太鼓",
+        "index": 116
+    },
+    {
+        "label": "Melodic Tom",
+        "value": "旋律通鼓",
+        "index": 117
+    },
+    {
+        "label": "Synth Drum",
+        "value": "合成鼓",
+        "index": 118
+    },
+    {
+        "label": "Reverse Cymbal",
+        "value": "反向镲",
+        "index": 119
+    },
+    {
+        "label": "Guitar Fret Noise",
+        "value": "吉他摩擦声",
+        "index": 120
+    },
+    {
+        "label": "Breath Noise",
+        "value": "呼吸声",
+        "index": 121
+    },
+    {
+        "label": "Seashore",
+        "value": "海浪声",
+        "index": 122
+    },
+    {
+        "label": "Bird Tweet",
+        "value": "鸟鸣声",
+        "index": 123
+    },
+    {
+        "label": "Telephone Ring",
+        "value": "电话铃声",
+        "index": 124
+    },
+    {
+        "label": "Helicopter",
+        "value": "直升机声",
+        "index": 125
+    },
+    {
+        "label": "Applause",
+        "value": "掌声",
+        "index": 126
+    },
+    {
+        "label": "Gunshot",
+        "value": "枪声",
+        "index": 127
+    }
+]

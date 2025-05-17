@@ -97,6 +97,24 @@ ipcMainHandle('processMidi', async () => {
     }
 });
 
+ipcMainHandle('writeNotes', async (new_note: PitchUnion) => {
+    try {
+        const response = await axios.post('http://localhost:5000/write-notes', new_note, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        console.log(response)
+        if (response.data.success) {
+            return true
+        }
+        return false
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return false
+    }
+});
+
 const defaultConfig: Config = {
     name: "default",
     tempo: 60,
