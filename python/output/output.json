@@ -1,209 +1,317 @@
 [
     {
-        "track": 1,
-        "cut": 4,
+        "track": 0,
+        "cut": 16,
         "sustain": true,
-        "start_beat": 0.0,
-        "duration": 2.0,
-        "note": "C4",
-        "instrument": 1
+        "start_beat": 0.25,
+        "duration": 0.25,
+        "note": "F4",
+        "instrument": 0
     },
     {
-        "track": 2,
-        "cut": 4,
+        "track": 0,
+        "cut": 16,
         "sustain": true,
-        "start_beat": 2.0,
-        "duration": 1.5,
-        "note": "G4",
-        "instrument": 11
+        "start_beat": 0.5,
+        "duration": 0.25,
+        "note": "F#4",
+        "instrument": 0
     },
     {
-        "track": 1,
-        "cut": 4,
+        "track": 0,
+        "cut": 16,
         "sustain": true,
-        "start_beat": 2.0,
-        "duration": 1.0,
-        "note": "C3",
-        "instrument": 1
+        "start_beat": 0.75,
+        "duration": 0.25,
+        "note": "G#4",
+        "instrument": 0
     },
     {
-        "track": 3,
-        "cut": 4,
+        "track": 0,
+        "cut": 16,
         "sustain": true,
-        "start_beat": 4.0,
-        "duration": 2.0,
+        "start_beat": 1,
+        "duration": 0.25,
         "note": "A#4",
-        "instrument": 30
+        "instrument": 0
     },
     {
-        "track": 4,
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 1.25,
+        "duration": 0.25,
+        "note": "C5",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 1.75,
+        "duration": 0.25,
+        "note": "C5",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 1.5,
+        "duration": 0.25,
+        "note": "D#5",
+        "instrument": 0
+    },
+    {
+        "track": 0,
         "cut": 8,
+        "sustain": true,
+        "start_beat": 2,
+        "duration": 0.75,
+        "note": "A#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 2.75,
+        "duration": 0.25,
+        "note": "G#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 3.75,
+        "duration": 0.25,
+        "note": "G#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 3,
+        "duration": 0.75,
+        "note": "A#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 4,
         "sustain": false,
-        "start_beat": 8.0,
-        "duration": 2.0,
-        "note": "E3",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": false,
-        "start_beat": 10.0,
-        "duration": 2.0,
-        "note": "D5",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 12.0,
-        "duration": 4.0,
-        "note": "G4",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 16.0,
-        "duration": 4.0,
-        "note": "G4",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 20.0,
-        "duration": 4.0,
-        "note": "G4",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 24.0,
-        "duration": 4.0,
-        "note": "G4",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 28.0,
-        "duration": 4.0,
-        "note": "G4",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 32.0,
-        "duration": 4.0,
-        "note": "G4",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 36.0,
-        "duration": 4.0,
-        "note": "G4",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 40.0,
-        "duration": 4.0,
-        "note": "G4",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 44.0,
-        "duration": 4.0,
-        "note": "G4",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 48.0,
-        "duration": 4.0,
-        "note": "G4",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 52.0,
-        "duration": 4.0,
-        "note": "G4",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 56.0,
-        "duration": 4.0,
-        "note": "G4",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 60.0,
-        "duration": 4.0,
-        "note": "G4",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 64.0,
-        "duration": 4.0,
-        "note": "G4",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 72.0,
-        "duration": 4.0,
-        "note": "G4",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 76.0,
-        "duration": 4.0,
-        "note": "G4",
-        "instrument": 1
-    },
-    {
-        "track": 2,
-        "cut": 4,
-        "sustain": true,
         "start_beat": 4,
+        "duration": 1,
+        "note": "A#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 5,
+        "duration": 0.25,
+        "note": "G#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 5.25,
+        "duration": 0.25,
+        "note": "A#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 5.5,
+        "duration": 0.25,
+        "note": "D#5",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 5.75,
+        "duration": 0.25,
+        "note": "C5",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 6,
         "duration": 2,
-        "note": "D4",
-        "instrument": 2
+        "note": "A#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 8,
+        "duration": 2,
+        "note": "A#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 10,
+        "duration": 2,
+        "note": "A#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 12,
+        "duration": 0.75,
+        "note": "A#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 12.75,
+        "duration": 0.25,
+        "note": "G#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 13.75,
+        "duration": 0.25,
+        "note": "G#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 13,
+        "duration": 0.75,
+        "note": "A#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 14,
+        "duration": 2,
+        "note": "A#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 16,
+        "duration": 0.75,
+        "note": "A#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 16.75,
+        "duration": 0.25,
+        "note": "G#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 17.75,
+        "duration": 0.25,
+        "note": "G#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 17,
+        "duration": 0.75,
+        "note": "A#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 18,
+        "duration": 0.75,
+        "note": "A#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 18.75,
+        "duration": 0.25,
+        "note": "F4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 19,
+        "duration": 0.5,
+        "note": "F4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": false,
+        "start_beat": 19.5,
+        "duration": 0.5,
+        "note": "G#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 20,
+        "duration": 0.75,
+        "note": "G#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 20.75,
+        "duration": 0.25,
+        "note": "A#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 21,
+        "duration": 1,
+        "note": "G#4",
+        "instrument": 0
     }
 ]

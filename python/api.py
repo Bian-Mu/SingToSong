@@ -1,17 +1,26 @@
 import json
 from flask import Flask, jsonify, request
-import os
+import os,sys
 
 from wavToPitch.midi import midi_to_wav, notes_to_midi
 from wavToPitch.pitch import PitchUnion, addNote, deleteNote
 
 app = Flask(__name__)
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-OUTPUT_JSON = os.path.join(BASE_DIR, "output/output.json")
-OUTPUT_MIDI = os.path.join(BASE_DIR,"output/output.mid")
-OUTPUT_WAV = os.path.join(BASE_DIR,"output/output.wav")
-CONFIG_PATH = os.path.join(BASE_DIR,"output/configs.json")
+if getattr(sys, 'frozen', False):
+    # 打包后执行
+    app_dir = os.path.dirname(sys.executable)
+    BASE_DIR = os.path.join(app_dir, '../output')  
+else:
+    # 开发时执行
+    BASE_DIR = os.path.join(os.path.dirname(__file__), 'output')    
+    os.makedirs(BASE_DIR, exist_ok=True)
+    
+# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+OUTPUT_JSON = os.path.join(BASE_DIR, "output.json")
+OUTPUT_MIDI = os.path.join(BASE_DIR,"output.mid")
+OUTPUT_WAV = os.path.join(BASE_DIR,"output.wav")
+CONFIG_PATH = os.path.join(BASE_DIR,"configs.json")
 
 @app.route('/read-config', methods=['GET'])
 def read_config():

@@ -1,9 +1,9 @@
 {
-    "name": "default",
+    "name": "不必在乎我是谁",
     "tempo": 60,
     "timeSignature": [
-        4,
+        2,
         4
     ],
-    "keySignature": "C"
+    "keySignature": "#C"
 }

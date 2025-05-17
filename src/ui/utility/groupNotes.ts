@@ -22,9 +22,11 @@ export function groupUnionsIntoMeters(unions: PitchUnion[], meters: number): { g
         // 情况1：当前位置在当前 union 之前 → 填充空白
         if (unionIndex < sortedUnions.length && currentPos < sortedUnions[unionIndex].start_beat) {
             const fillEnd = Math.min(sortedUnions[unionIndex].start_beat, groupEnd);
-            const fillDuration = fillEnd - currentPos;
+            let remainingFill = fillEnd - currentPos;
 
-            if (fillDuration > 0) {
+            while (remainingFill > 0) {
+                const fillDuration = Math.min(0.5, remainingFill);
+
                 result.push({
                     start_beat: currentPos,
                     duration: fillDuration,
@@ -35,8 +37,10 @@ export function groupUnionsIntoMeters(unions: PitchUnion[], meters: number): { g
                     instrument: 0
                 });
                 groupNumbers.push(Math.floor(currentPos / meters));
+
+                currentPos += fillDuration;
+                remainingFill -= fillDuration;
             }
-            currentPos = fillEnd;
         }
         // 情况2：处理当前 union
         else if (unionIndex < sortedUnions.length) {
@@ -49,9 +53,11 @@ export function groupUnionsIntoMeters(unions: PitchUnion[], meters: number): { g
         // 情况3：所有 union 处理完毕 → 填充剩余空白
         else {
             const fillEnd = groupEnd;
-            const fillDuration = fillEnd - currentPos;
+            let remainingFill = fillEnd - currentPos;
 
-            if (fillDuration > 0) {
+            while (remainingFill > 0) {
+                const fillDuration = Math.min(0.5, remainingFill);
+
                 result.push({
                     start_beat: currentPos,
                     duration: fillDuration,
@@ -62,8 +68,10 @@ export function groupUnionsIntoMeters(unions: PitchUnion[], meters: number): { g
                     instrument: 0
                 });
                 groupNumbers.push(Math.floor(currentPos / meters));
+
+                currentPos += fillDuration;
+                remainingFill -= fillDuration;
             }
-            currentPos = fillEnd;
         }
     }
 

@@ -4,7 +4,7 @@ import SingleNote from './SingleNote/SingleNote';
 import ConfigButton from '../ConfigButton/ConfigButton';
 import { Divider, message, Select } from 'antd';
 import { groupUnionsIntoMeters } from '../../utility/groupNotes';
-
+import _ from 'lodash';
 
 const defaultConfig: Config = {
     name: "default",
@@ -46,9 +46,11 @@ const NotesViewer: React.FC<NotesViewerProps> = ({ addRefresh }) => {
                 finalData[groupNum].push(groupData.groupedUnions[index])
             })
             const bigGroups: PitchUnion[][][] = [];
-            for (let i = 0; i < finalData.length; i += 4) {
-                bigGroups.push(finalData.slice(i, i + 4))
+            const cut = 2
+            for (let i = 0; i < finalData.length; i += cut) {
+                bigGroups.push(finalData.slice(i, i + cut))
             }
+            // console.log(bigGroups[0][1])
             setData(bigGroups)
         } catch (err) {
             setError(err instanceof Error ? err.message : 'Unknown error');
@@ -74,13 +76,13 @@ const NotesViewer: React.FC<NotesViewerProps> = ({ addRefresh }) => {
     }, [track, addRefresh, deleteRefresh]);
 
 
-
+    // console.log("config", config, "other", defaultConfig)
 
     return (
         <div id="music-sheet">
             {contextHolder}
             <div id='sheet-head'>
-                {config === defaultConfig ? "请设置config" : <ConfigButton config={config} />}
+                {_.isEqual(config, defaultConfig) ? "请设置config" : <ConfigButton config={config} />}
                 <div style={{ height: "48px", lineHeight: "48px" }}>
                     <span style={{ fontSize: "18px" }}>预览音轨：</span>
                     <Select defaultValue={track} id='track-select' onChange={(value) => setTrack(value)}>
@@ -99,7 +101,7 @@ const NotesViewer: React.FC<NotesViewerProps> = ({ addRefresh }) => {
                 {data.map((bigGroup, bigGroupIndex) => (
                     <div key={`big-group-${bigGroupIndex}`} className="big-group">
                         <span style={{ fontSize: "12px", width: "20px" }}>
-                            {16 * (bigGroupIndex)}
+                            {4 * (bigGroupIndex)}
                         </span>
 
                         {`|`}

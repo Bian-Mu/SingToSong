@@ -5,7 +5,15 @@
         "dist-react"
     ],
     "extraResources": [
-        "dist-electron/preload.cjs"
+        "dist-electron/preload.cjs",
+        {
+            "from": "python",
+            "to": "python",
+            "filter": [
+                "**/*",
+                "!output/**"
+            ]
+        }
     ],
     "icon": "./desktopIcon.png",
     "mac": {

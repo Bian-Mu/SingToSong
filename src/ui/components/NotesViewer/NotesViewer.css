@@ -19,7 +19,7 @@
 }
 
 #sheet-body {
-    height: 600px;
+    height: 540px;
     overflow-y: auto;
     padding: 0 20px 0 20px;
     display: grid;
@@ -44,5 +44,5 @@
 .small-group {
     display: flex;
     align-items: center;
-    width: 23%;
+    width: 46%;
 }

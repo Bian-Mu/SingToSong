@@ -91,7 +91,8 @@ const SingleNote: React.FC<SingleNoteProps> = ({ pitchunion, config, onRightClic
                 </div>
             );
         } else if (m < 1) {
-            const n = Math.log2(m);
+            const n = 0 - Math.log2(m);
+            // console.log(n)
             // 添加n条横线
             let nums: string = ""
             if (n == 2) {

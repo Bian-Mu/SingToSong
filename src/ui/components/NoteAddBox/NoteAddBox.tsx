@@ -32,7 +32,7 @@ const NoteAddBox: React.FC<NoteAddBoxProps> = ({ onRefresh }) => {
             if (result) {
                 messageApi.success('音符添加成功');
                 onRefresh()
-                form.resetFields();
+                // form.resetFields();
             } else {
                 messageApi.error("出错了")
             }
