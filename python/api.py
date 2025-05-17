@@ -3,7 +3,7 @@ from flask import Flask, jsonify, request
 import os
 
 from wavToPitch.midi import midi_to_wav, notes_to_midi
-from wavToPitch.pitch import PitchUnion, addNote
+from wavToPitch.pitch import PitchUnion, addNote, deleteNote
 
 app = Flask(__name__)
 
@@ -43,6 +43,17 @@ def write_notes():
         
         if os.path.exists(OUTPUT_JSON):
             addNote(new_note,OUTPUT_JSON)
+            return jsonify({"success": True})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
+    
+@app.route('/delete-notes', methods=['POST'])
+def delete_notes():
+    try:
+        delete_note:PitchUnion = PitchUnion(**request.get_json())
+        
+        if os.path.exists(OUTPUT_JSON):
+            deleteNote(delete_note,OUTPUT_JSON)
             return jsonify({"success": True})
     except Exception as e:
         return jsonify({"success": False, "error": str(e)})

@@ -2,19 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './NotesViewer.css';
 import SingleNote from './SingleNote/SingleNote';
 import ConfigButton from '../ConfigButton/ConfigButton';
-import { Divider, Select } from 'antd';
+import { Divider, message, Select } from 'antd';
 import { groupUnionsIntoMeters } from '../../utility/groupNotes';
-
-declare global {
-    interface Window {
-        electronAPI: {
-            readNotes: () => Promise<PitchUnion[]>;
-            readConfig: () => Promise<Config>;
-            processMidi: () => Promise<boolean>;
-            writeNotes: (new_note: PitchUnion) => Promise<boolean>
-        };
-    }
-}
 
 
 const defaultConfig: Config = {
@@ -28,15 +17,17 @@ const defaultConfig: Config = {
 }
 
 interface NotesViewerProps {
-    refresh: number
+    addRefresh: number
 }
 
 
-const NotesViewer: React.FC<NotesViewerProps> = ({ refresh }) => {
+const NotesViewer: React.FC<NotesViewerProps> = ({ addRefresh }) => {
     const [data, setData] = useState<PitchUnion[][][]>([]);
     const [config, setConfig] = useState<Config>(defaultConfig)
     const [error, setError] = useState<string | null>(null);
     const [track, setTrack] = useState<number>(0)
+    const [messageApi, contextHolder] = message.useMessage();
+    const [deleteRefresh, setDeleteRefresh] = useState<number>(0)
 
     const readNotes = async () => {
         setError(null);
@@ -64,16 +55,30 @@ const NotesViewer: React.FC<NotesViewerProps> = ({ refresh }) => {
         }
     };
 
+    const handleRightClick = async (pitchunion: PitchUnion) => {
+        try {
+            const result = await window.electronAPI.deleteNotes(pitchunion)
+            if (result) {
+                messageApi.success("删除成功")
+                setDeleteRefresh(prev => prev + 1)
+            } else {
+                messageApi.success("出错了")
+            }
+        } catch (error: any) {
+            messageApi.error(error)
+        }
+    };
 
     useEffect(() => {
         readNotes();
-    }, [track, refresh]);
+    }, [track, addRefresh, deleteRefresh]);
 
 
 
 
     return (
         <div id="music-sheet">
+            {contextHolder}
             <div id='sheet-head'>
                 {config === defaultConfig ? "请设置config" : <ConfigButton config={config} />}
                 <div style={{ height: "48px", lineHeight: "48px" }}>
@@ -108,6 +113,7 @@ const NotesViewer: React.FC<NotesViewerProps> = ({ refresh }) => {
                                                 key={`note-${bigGroupIndex}-${smallGroupIndex}-${elementIndex}`}
                                                 pitchunion={element}
                                                 config={config}
+                                                onRightClick={handleRightClick}
                                             />
                                         ))}
                                     </>

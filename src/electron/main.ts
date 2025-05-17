@@ -104,7 +104,23 @@ ipcMainHandle('writeNotes', async (new_note: PitchUnion) => {
                 'Content-Type': 'application/json'
             }
         });
-        console.log(response)
+        if (response.data.success) {
+            return true
+        }
+        return false
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return false
+    }
+});
+
+ipcMainHandle('deleteNotes', async (delete_note: PitchUnion) => {
+    try {
+        const response = await axios.post('http://localhost:5000/delete-notes', delete_note, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
         if (response.data.success) {
             return true
         }

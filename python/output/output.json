@@ -198,51 +198,6 @@
         "instrument": 1
     },
     {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 80.0,
-        "duration": 4.0,
-        "note": "G4",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 88.0,
-        "duration": 4.0,
-        "note": "G4",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 120.0,
-        "duration": 4.0,
-        "note": "G4",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 128,
-        "duration": 4,
-        "note": "C4",
-        "instrument": 1
-    },
-    {
-        "track": 1,
-        "cut": 4,
-        "sustain": true,
-        "start_beat": 136,
-        "duration": 4,
-        "note": "C4",
-        "instrument": 1
-    },
-    {
         "track": 2,
         "cut": 4,
         "sustain": true,

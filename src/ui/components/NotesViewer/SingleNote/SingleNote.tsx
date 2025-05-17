@@ -7,6 +7,7 @@ const { Text } = Typography;
 interface SingleNoteProps {
     pitchunion: PitchUnion
     config: Config
+    onRightClick: Function
 }
 
 //1、根据2^k=cut/standard的值，如果k>0,在pitchunion.noteing底下添加k条横线，
@@ -16,7 +17,12 @@ interface SingleNoteProps {
 // 如果m小于1,那m一定是2^n(n为负整数)，此时在规则1的结果下添加n条横线，
 // 如果m大于1,则一定是1.5、2.5、3.5等数，此时执行整数部分的次数，并在最终结果后加一个加粗的英文句号
 
-const SingleNote: React.FC<SingleNoteProps> = ({ pitchunion, config }) => {
+const SingleNote: React.FC<SingleNoteProps> = ({ pitchunion, config, onRightClick }) => {
+    const handleContextMenu = (e: React.MouseEvent) => {
+        e.preventDefault();
+        onRightClick(pitchunion);
+    };
+
     const standard = config.timeSignature[1]
 
     const k = Math.log2(pitchunion.cut / standard);
@@ -123,7 +129,7 @@ const SingleNote: React.FC<SingleNoteProps> = ({ pitchunion, config }) => {
     };
 
     return (
-        <div className='single-note'>
+        <div className='single-note' onContextMenu={handleContextMenu}>
             {renderFinalResult()}
         </div>
     );

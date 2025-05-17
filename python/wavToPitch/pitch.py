@@ -69,6 +69,19 @@ def addNote(input:PitchUnion,file:str):
     with open(file, 'w') as f:
         json.dump([note.to_dict() for note in notes], f, indent=4)
 
+def deleteNote(input:PitchUnion,file:str):
+    try:
+        with open(file, 'r') as f:
+            data = json.load(f)
+            notes = [PitchUnion.from_dict(item) for item in data]
+    except (FileNotFoundError, json.JSONDecodeError):
+        notes = []
+
+    new_notes = [note for note in notes if not note.overlaps_with(input)]
+    
+    with open(file, 'w') as f:
+        json.dump([note.to_dict() for note in new_notes], f, indent=4)
+
 def getNote(note:str)->int:
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     with open(os.path.join(BASE_DIR,"./src/notes.json"), 'r') as f:

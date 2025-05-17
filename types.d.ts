@@ -35,6 +35,7 @@ type EventPayloadMapping = {
     readConfig: Config
     processMidi: boolean
     writeNotes: boolean
+    deleteNotes: boolean
 }
 
 type UnSubscribeFunction = () => void

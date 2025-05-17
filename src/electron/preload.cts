@@ -13,7 +13,8 @@ contextBridge.exposeInMainWorld("electronAPI", {
     readNotes: () => ipcInvoke('readNotes'),
     readConfig: () => ipcInvoke('readConfig'),
     processMidi: () => ipcInvoke('processMidi'),
-    writeNotes: (new_note: PitchUnion) => ipcInvoke("writeNotes", new_note)
+    writeNotes: (new_note: PitchUnion) => ipcInvoke("writeNotes", new_note),
+    deleteNotes: (delete_note: PitchUnion) => ipcInvoke("deleteNotes", delete_note)
 })
 
 
