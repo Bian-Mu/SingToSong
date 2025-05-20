@@ -26,7 +26,7 @@ if __name__ == "__main__":
     output_wav=os.path.join(BASE_DIR,"output/output.wav")
     
     
-    with open(os.path.join(BASE_DIR,"output/configs.json")) as f:
+    with open(os.path.join(BASE_DIR,"output/configs.json"), encoding='utf-8') as f:
         configs=json.load(f)
     
     pitch_unions = []
@@ -44,7 +44,7 @@ if __name__ == "__main__":
     # pitch_unions.append(new_pitch)
     # print(f"已添加音符: {new_pitch.note} 到音轨 {new_pitch.track}")
     
-    with open(output_json,"w") as f:
+    with open(output_json,"w", encoding='utf-8') as f:
         json.dump([union.to_dict() for union in pitch_unions],f)
     
     notes_to_midi(pitch_unions,output_mid,configs["tempo"],configs["timeSignature"])

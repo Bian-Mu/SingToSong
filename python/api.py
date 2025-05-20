@@ -26,7 +26,7 @@ CONFIG_PATH = os.path.join(BASE_DIR,"configs.json")
 def read_config():
     try:
         if os.path.exists(CONFIG_PATH):
-            with open(CONFIG_PATH, 'r') as f:
+            with open(CONFIG_PATH, 'r', encoding='utf-8') as f:
                 data = json.load(f)
             return jsonify({"success": True, "config": data})
         return jsonify({"success": False, "error": "File not found"})
@@ -38,7 +38,7 @@ def read_config():
 def read_notes():
     try:
         if os.path.exists(OUTPUT_JSON):
-            with open(OUTPUT_JSON, 'r') as f:
+            with open(OUTPUT_JSON, 'r', encoding='utf-8') as f:
                 data = json.load(f)
             return jsonify({"success": True, "pitchunions": data})
         return jsonify({"success": False, "error": "File not found"})
@@ -71,11 +71,11 @@ def delete_notes():
 def process_midi():
     try:
         if os.path.exists(OUTPUT_JSON):
-            with open(OUTPUT_JSON, 'r') as f:
+            with open(OUTPUT_JSON, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 pitch_unions = [PitchUnion.from_dict(item) for item in data]
                 
-            with open(CONFIG_PATH, 'r') as f:
+            with open(CONFIG_PATH, 'r', encoding='utf-8') as f:
                 configs = json.load(f)
                 
                 notes_to_midi(pitch_unions,OUTPUT_MIDI,configs["tempo"],configs["timeSignature"])
