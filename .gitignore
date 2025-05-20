@@ -29,3 +29,5 @@ dist-electron
 __pycache__
 *.m4a
 *.sf2
+
+python/output/人声.wav

@@ -313,5 +313,311 @@
         "duration": 1,
         "note": "G#4",
         "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 22.75,
+        "duration": 0.25,
+        "note": "G#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 23,
+        "duration": 0.5,
+        "note": "C#5",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 23.5,
+        "duration": 0.5,
+        "note": "C5",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 24,
+        "duration": 0.5,
+        "note": "A#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 25,
+        "duration": 0.5,
+        "note": "A#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 24.5,
+        "duration": 0.5,
+        "note": "G#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 25.5,
+        "duration": 0.5,
+        "note": "G#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 26,
+        "duration": 1,
+        "note": "G#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 27,
+        "duration": 0.25,
+        "note": "D#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 27.5,
+        "duration": 0.25,
+        "note": "D#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 27.25,
+        "duration": 0.25,
+        "note": "F4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 27.75,
+        "duration": 0.25,
+        "note": "A#3",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": false,
+        "start_beat": 28,
+        "duration": 1,
+        "note": "C#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": false,
+        "start_beat": 29,
+        "duration": 0.25,
+        "note": "C#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": false,
+        "start_beat": 29.25,
+        "duration": 0.25,
+        "note": "D#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 29.5,
+        "duration": 0.5,
+        "note": "D#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 30,
+        "duration": 1,
+        "note": "D#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 31,
+        "duration": 0.25,
+        "note": "D#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 31.5,
+        "duration": 0.25,
+        "note": "D#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 31.25,
+        "duration": 0.25,
+        "note": "F4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 31.75,
+        "duration": 0.25,
+        "note": "F4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": false,
+        "start_beat": 32,
+        "duration": 1,
+        "note": "G#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 33,
+        "duration": 0.5,
+        "note": "A#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 33.5,
+        "duration": 0.5,
+        "note": "D#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 34.75,
+        "duration": 0.25,
+        "note": "F4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 35,
+        "duration": 0.5,
+        "note": "F4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 35.5,
+        "duration": 0.5,
+        "note": "G#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": false,
+        "start_beat": 36,
+        "duration": 0.75,
+        "note": "G#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": false,
+        "start_beat": 36.75,
+        "duration": 0.25,
+        "note": "A#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 4,
+        "sustain": true,
+        "start_beat": 37,
+        "duration": 1,
+        "note": "G#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": false,
+        "start_beat": 38.5,
+        "duration": 0.5,
+        "note": "G#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 39,
+        "duration": 0.25,
+        "note": "C#5",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 16,
+        "sustain": true,
+        "start_beat": 39.75,
+        "duration": 0.25,
+        "note": "A#4",
+        "instrument": 0
+    },
+    {
+        "track": 0,
+        "cut": 8,
+        "sustain": true,
+        "start_beat": 39.25,
+        "duration": 0.5,
+        "note": "C5",
+        "instrument": 0
     }
 ]
